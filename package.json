@@ -1,0 +1,41 @@
+{
+  "name": "anagram-backend",
+  "version": "1.0.0",
+  "description": "For the anagram challenge",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon bin/dev",
+    "clean": "rm -rf dist",
+    "build": "npm run clean && mkdir dist && babel server -s -d dist",
+    "production": "npm run build && nodemon bin/production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rajatonit/anagram-backend.git"
+  },
+  "author": "rajat arora",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rajatonit/anagram-backend/issues"
+  },
+  "homepage": "https://github.com/rajatonit/anagram-backend#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "bunyan": "^1.8.12",
+    "bunyan-express-serializer": "^1.0.0",
+    "dotenv": "^7.0.0",
+    "express": "^4.16.4",
+    "express-request-id": "^1.4.1",
+    "helmet": "^3.16.0",
+    "install": "^0.12.2",
+    "mongoose": "^5.5.1",
+    "morgan": "^1.9.1"
+  },
+  "devDependencies": {
+    "@babel/cli": "^7.4.3",
+    "@babel/core": "^7.4.3",
+    "@babel/preset-env": "^7.4.3",
+    "@babel/register": "^7.4.0"
+  }
+}
