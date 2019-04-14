@@ -11,6 +11,7 @@ env:
 before_deploy:
   - npm install -g claudia
   - npm install
+  - chmod +x ./deployScript/awsCred.sh
   - ./deployScript/awsCred.sh
 
 
