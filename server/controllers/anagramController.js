@@ -43,19 +43,31 @@ anagramController.get = async (req, res) => {
 
 
         var anagram = await db.Anagrams.findOne({key});
-        var anagrams = anagram.anagrams
-        const indexOfKey = anagram.anagrams.indexOf(req.params.key)
-        console.log(indexOfKey)
-        anagrams.splice(indexOfKey, 1);
-
-        await client.hmsetAsync(key, {anagrams})
-        logger.logResponse(req.id, { word: req.params.key,
-            anagrams}, 200);
-        
-        res.json({
-            word: req.params.key,
-            anagrams
-        })
+        if(anagram){
+            var anagrams = anagram.anagrams
+            const indexOfKey = anagram.anagrams.indexOf(req.params.key)
+            console.log(indexOfKey)
+            anagrams.splice(indexOfKey, 1);
+    
+            await client.hmsetAsync(key, {anagrams})
+            logger.logResponse(req.id, { word: req.params.key,
+                anagrams}, 200);
+            
+            res.json({
+                word: req.params.key,
+                anagrams
+            })
+        }else{
+            await client.hmsetAsync(key, {anagrams: []})
+            logger.logResponse(req.id, { word: req.params.key,
+                anagrams}, 200);
+            
+            res.json({
+                word: req.params.key,
+                anagrams: []
+            })
+        }
+      
     }catch(err){
         console.log(err)
        res.sendStatus(500)

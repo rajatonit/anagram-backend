@@ -7,8 +7,12 @@
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon bin/dev",
     "clean": "rm -rf dist",
+    "transpile": "cross-env PORT=3000 NODE_ENV=production babel server --out-dir dist",
     "build": "npm run clean && mkdir dist && babel server -s -d dist",
-    "production": "npm run build && nodemon bin/production"
+    "production": "npm run build && nodemon bin/production",
+    "create-prod": "npm run transpile && claudia update  --handler lambda.handler --deploy-proxy-api --region us-east-1 && npm run clean",
+    "create-lambda1": "claudia generate-serverless-express-proxy --set-env MONGO_URI=$MONGO_URI --set-env REDIS_URL=$REDIS_URL --express-module ./dist/lambda-run",
+    "create-lambda": "claudia create --handler lambda.handler --deploy-proxy-api --region us-east-1"
   },
   "repository": {
     "type": "git",
@@ -23,10 +27,14 @@
   "dependencies": {
     "@babel/plugin-transform-runtime": "^7.4.3",
     "@babel/runtime": "^7.4.3",
+    "aws-serverless-express": "^3.3.6",
+    "babel-preset-env": "^1.7.0",
+    "babel-preset-es2015": "^6.24.1",
     "bluebird": "^3.5.4",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.12",
     "bunyan-express-serializer": "^1.0.0",
+    "cross-env": "^5.2.0",
     "dotenv": "^7.0.0",
     "express": "^4.16.4",
     "express-request-id": "^1.4.1",

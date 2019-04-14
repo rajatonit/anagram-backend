@@ -1,0 +1,10 @@
+{
+  "lambda": {
+    "role": "anagram-backend-executor",
+    "name": "anagram-backend",
+    "region": "us-east-1"
+  },
+  "api": {
+    "id": "gxvvircsn1"
+  }
+}
