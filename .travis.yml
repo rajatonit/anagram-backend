@@ -14,7 +14,6 @@ before_deploy:
   - chmod +x ./deployScript/awsCred.sh
   - ./deployScript/awsCred.sh
 
-
 deploy:
   provider: script
   script: npm run create-prod
