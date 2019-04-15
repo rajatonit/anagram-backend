@@ -3,13 +3,13 @@ Part of anagram challenge.
 
 [![Build Status](https://travis-ci.org/rajatonit/anagram-backend.svg?branch=master)](https://travis-ci.org/rajatonit/anagram-backend)
 
-#Run server
+# Run server
 npm run dev  (requires MONGO_URI and REDIS_URL as env variables)
 
-#Build 
+# Build 
 npm run transpile
 
-#Interacting with the Local API
+# Interacting with the Local API
 ```{bash}
 # Health
 $ curl -i -X GET http://localhost:8081/health
