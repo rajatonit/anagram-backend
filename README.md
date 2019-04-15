@@ -7,9 +7,8 @@ Part of anagram challenge.
 # Run server
 npm run dev  (requires MONGO_URI and REDIS_URL as env variables)
 
-#Seed db
+# Seed db
 go to seedDB folder and run: python3 mongoTool.py (requires MONGO_URI env variable)
-
 
 # Build 
 npm run transpile
