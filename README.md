@@ -3,8 +3,13 @@ Part of anagram challenge.
 
 [![Build Status](https://travis-ci.org/rajatonit/anagram-backend.svg?branch=master)](https://travis-ci.org/rajatonit/anagram-backend)
 
+
 # Run server
 npm run dev  (requires MONGO_URI and REDIS_URL as env variables)
+
+#Seed db
+go to seedDB folder and run: python3 mongoTool.py (requires MONGO_URI env variable)
+
 
 # Build 
 npm run transpile
