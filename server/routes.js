@@ -8,7 +8,7 @@ const logger = require('./utils/logger');
 const routes = express();
 
 
-routes.post ("/", basicController.get);
+routes.get ("/", basicController.get);
 
 routes.get("/anagram/:key",anagramController.get)
 

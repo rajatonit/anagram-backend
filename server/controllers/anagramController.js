@@ -46,7 +46,6 @@ anagramController.get = async (req, res) => {
         if(anagram){
             var anagrams = anagram.anagrams
             const indexOfKey = anagram.anagrams.indexOf(req.params.key)
-            console.log(indexOfKey)
             anagrams.splice(indexOfKey, 1);
     
             await client.hmsetAsync(key, {anagrams})
