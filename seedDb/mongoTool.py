@@ -49,13 +49,14 @@ def anagrams_to_db(skip_n,limit_n):
 if __name__ == '__main__':
     client = MongoClient(os.environ['MONGO_URI'])
     n_cores = 4              
-    collection_size = 110339 
-    batch_size = round(collection_size/n_cores+0.5)
-    skips = range(0, n_cores*batch_size, batch_size)
     filname = 'dict.txt'
     word_dict = init_words(filname)
     anagram_dict = init_anagram_dict(word_dict.keys())
+    #110339 
     print(len(anagram_dict.keys()))
+    collection_size = len(anagram_dict.keys())
+    batch_size = round(collection_size/n_cores+0.5)
+    skips = range(0, n_cores*batch_size, batch_size)
 
     processes = [ multiprocessing.Process(target=anagrams_to_db, args=(skip_n,batch_size)) for skip_n in skips]
 
