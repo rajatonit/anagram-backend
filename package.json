@@ -30,7 +30,7 @@
     "aws-serverless-express": "^3.3.6",
     "babel-preset-env": "^1.7.0",
     "babel-preset-es2015": "^6.24.1",
-    "bluebird": "^3.5.4",
+    "bluebird": "^3.7.2",
     "body-parser": "^1.18.3",
     "bunyan": "^1.8.12",
     "bunyan-express-serializer": "^1.0.0",
